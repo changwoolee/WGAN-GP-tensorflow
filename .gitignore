@@ -1,0 +1,8 @@
+# log directory
+logs/
+
+# data directory
+data/
+
+# python
+*.pyc
