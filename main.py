@@ -32,10 +32,11 @@ FLAGS = flags.FLAGS
 def main(_):
 	pp.pprint(flags.FLAGS.__flags)
 
-	run_config = tf.ConfigProto()
-	run_config.gpu_options.allow_growth=True
+#	run_config = tf.ConfigProto()
+#	run_config.gpu_options.allow_growth=True
 
-	with tf.Session(config=run_config) as sess:
+#	with tf.Session(config=run_config) as sess:
+	with tf.Session() as sess:
 		wgan = WGAN(sess,
 				input_height=FLAGS.input_height,
 				input_width=FLAGS.input_width,
