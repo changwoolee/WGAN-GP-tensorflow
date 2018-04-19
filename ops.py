@@ -6,7 +6,9 @@ def batch_norm(x, epsilon=1e-5, decay=0.9, name='batch_norm'):
 	with tf.variable_scope(name):
 		return tf.contrib.layers.batch_norm(x, decay=decay, epsilon=epsilon, scale=True)
 
-
+def layer_norm(x, trainable=True, name='layer_norm'):
+	with tf.variable_scope(name):
+		return tf.contrib.layers.layer_norm(x, trainable=trainable)
 
 def linear(name, x, output_dim, stddev=0.02):
 	with tf.variable_scope(name):

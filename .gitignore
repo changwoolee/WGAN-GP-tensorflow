@@ -4,5 +4,8 @@ logs/
 # data directory
 data/
 
+# sample directory
+samples/
+
 # python
 *.pyc
