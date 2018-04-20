@@ -211,13 +211,7 @@ def forward_test(sess, wgan_gp, config, test_num):
 		for idx in xrange(wgan_gp.z_dim):
 			for kdx, z in enumerate(z_sample):
 				z[idx] = values[kdx]
-			if config.dataset == "mnist":
-				y = np.random.choice(10, config.batch_size)
-				y_one_hot = np.zeros((config.batch_size, 10))
-				y_one_hot[np.arange(config.batch_size), y]=1
-				samples = sess.run(wgan_gp.sampler, feed_dict={wgan_gp.z: z_sample, wgan_gp.y: y_one_hot})
-			else:
-				samples = sess.run(wgan_gp.sampler, feed_dict={wgan_gp.z: z_sample})
+			samples = sess.run(wgan_gp.X_fake, feed_dict={wgan_gp.z: z_sample})
 	print("[*] Test Finished. Elasped Time : %4.4f" %( time.time()-start_time))
 def visualize(sess, wgan_gp, config, option):
 	image_frame_dim = int(math.ceil(config.batch_size**.5))
@@ -232,15 +226,7 @@ def visualize(sess, wgan_gp, config, option):
 			z_sample = np.random.uniform(-1, 1, size=(config.batch_size , wgan_gp.z_dim))
 			for kdx, z in enumerate(z_sample):
 				z[idx] = values[kdx]
-
-			if config.dataset == "mnist":
-				y = np.random.choice(10, config.batch_size)
-				y_one_hot = np.zeros((config.batch_size, 10))
-				y_one_hot[np.arange(config.batch_size), y] = 1
-
-				samples = sess.run(wgan_gp.X_fake, feed_dict={wgan_gp.z: z_sample, wgan_gp.y: y_one_hot})
-			else:
-				samples = sess.run(wgan_gp.X_fake, feed_dict={wgan_gp.z: z_sample})
+			samples = sess.run(wgan_gp.X_fake, feed_dict={wgan_gp.z: z_sample})
 
 			save_images(samples, [image_frame_dim, image_frame_dim], './samples/test_arange_%s.png' % (idx))
 	elif option == 2:
