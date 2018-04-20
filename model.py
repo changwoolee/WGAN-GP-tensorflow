@@ -219,7 +219,7 @@ class WGAN(object):
 						'./{}/sample_{:02d}_{:04d}.png'.format(self.sample_dir, epoch, batch_step)) 
 				
 
-			if step%5000==4999:
+			if step%1000==0:
 				self.saver.save(self.sess, self.log_dir + "/model.ckpt", global_step=step)
 			
 

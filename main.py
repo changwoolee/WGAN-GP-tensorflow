@@ -65,7 +65,7 @@ def main(_):
 		if FLAGS.train:
 			wgan.train()
 		else:
-			if not wgan.load(FLAGS.checkpoint_dir)[0]:
+			if not wgan.load(FLAGS.log_dir):
 				raise Exception("[!] Train a model first, then run test mode")
 
 
@@ -73,7 +73,7 @@ def main(_):
 		if FLAGS.forward_test:
 			forward_test(sess,wgan,FLAGS, FLAGS.test_num)
 		OPTION = 1
-		visualize(sess.wgan, FLAGS, OPTION)
+		visualize(sess,wgan, FLAGS, OPTION)
 
 
 if __name__=='__main__':

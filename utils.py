@@ -238,9 +238,9 @@ def visualize(sess, wgan_gp, config, option):
 				y_one_hot = np.zeros((config.batch_size, 10))
 				y_one_hot[np.arange(config.batch_size), y] = 1
 
-				samples = sess.run(wgan_gp.sampler, feed_dict={wgan_gp.z: z_sample, wgan_gp.y: y_one_hot})
+				samples = sess.run(wgan_gp.X_fake, feed_dict={wgan_gp.z: z_sample, wgan_gp.y: y_one_hot})
 			else:
-				samples = sess.run(wgan_gp.sampler, feed_dict={wgan_gp.z: z_sample})
+				samples = sess.run(wgan_gp.X_fake, feed_dict={wgan_gp.z: z_sample})
 
 			save_images(samples, [image_frame_dim, image_frame_dim], './samples/test_arange_%s.png' % (idx))
 	elif option == 2:
@@ -258,7 +258,7 @@ def visualize(sess, wgan_gp, config, option):
 				y_one_hot = np.zeros((config.batch_size, 10))
 				y_one_hot[np.arange(config.batch_size), y] = 1
 
-				samples = sess.run(wgan_gp.sampler, feed_dict={wgan_gp.z: z_sample, wgan_gp.y: y_one_hot})
+				samples = sess.run(wgan_gp.X_fake, feed_dict={wgan_gp.z: z_sample, wgan_gp.y: y_one_hot})
 			else:
 				samples = sess.run(wgan_gp.X_fake, feed_dict={wgan_gp.z: z_sample})
 

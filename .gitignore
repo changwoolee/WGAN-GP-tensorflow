@@ -2,10 +2,12 @@
 logs/
 
 # data directory
-data/
+data/*
 
 # sample directory
 samples/
 
 # python
 *.pyc
+
+logs_180417/
