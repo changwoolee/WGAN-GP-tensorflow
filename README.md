@@ -2,7 +2,7 @@
 
 Tensorflow implementation of paper ["Improved Training of Wasserstein GANs"](https://arxiv.org/abs/1704.00028).
 
-![gif](http://cfile22.uf.tistory.com/image/995AF8365AD9714617A457)
+![gif](http://cfile22.uf.tistory.com/image/995AF8365AD9714617A457.gif)
 
 * 0 epoch
 
